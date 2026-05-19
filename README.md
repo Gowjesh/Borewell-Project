@@ -54,26 +54,26 @@ All variables are in `.env`. The critical ones:
 
 | Variable | Required | Notes |
 |----------|----------|-------|
-| `SUPABASE_URL` | ✅ | Your Supabase project URL |
-| `SUPABASE_KEY` | ✅ | Supabase anon key |
-| `JWT_SECRET` | ✅ | Change to a long random string in production |
-| `GMAIL_USER` | ✅ | Gmail address for sending emails |
-| `GMAIL_PASS` | ✅ | Gmail **App Password** (not your real password) |
-| `ADMIN_EMAIL` | ✅ | Admin login email |
-| `ADMIN_PASSWORD` | ✅ | Admin login password |
-| `ADMIN_OTP` | ✅ | 4-digit PIN for 2-step admin login |
-| `RAZORPAY_KEY_ID` | ⚠️ | Leave placeholder until you have real keys |
-| `RAZORPAY_KEY_SECRET` | ⚠️ | Leave placeholder until you have real keys |
+| `SUPABASE_URL` | Yes | Your Supabase project URL |
+| `SUPABASE_KEY` | Yes | Supabase anon key |
+| `JWT_SECRET` | Yes | Change to a long random string in production |
+| `GMAIL_USER` | Yes | Gmail address for sending emails |
+| `GMAIL_PASS` | Yes | Gmail **App Password** (not your real password) |
+| `ADMIN_EMAIL` | Yes | Admin login email |
+| `ADMIN_PASSWORD` | Yes | Admin login password |
+| `ADMIN_OTP` | Yes | 4-digit PIN for 2-step admin login |
+| `RAZORPAY_KEY_ID` | No | Leave placeholder until you have real keys |
+| `RAZORPAY_KEY_SECRET` | No | Leave placeholder until you have real keys |
 
 ---
 
 ## Security Fixes Applied
 
-### Removed ❌
+### Removed 
 - `process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'` — this disabled TLS verification globally, a serious security hole
 - Wildcard CORS (`*`) — replaced with explicit allowed origins
 
-### Added ✅
+### Added 
 - **Security headers** on every response (X-Frame-Options, X-Content-Type-Options, X-XSS-Protection)
 - **Rate limiting** on `/api/login` and `/api/forgot-password` (10 attempts per 15 min)
 - **Input sanitisation** — all user strings stripped of HTML tags
