@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "borewell-react/dist"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = "borewell-react/README.md,README.md,node_modules"
+  SECRETS_SCAN_OMIT_KEYS = "PORT,RAZORPAY_KEY_ID,ADMIN_OTP"
+
+[functions]
+  directory = "netlify/functions"
+  external_node_modules = ["bcryptjs"]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
