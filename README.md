@@ -153,3 +153,7 @@ For Railway, Render, or any Node.js host:
 For Netlify (serverless):
 - The `api.js` file (already in your project) wraps the server for Netlify Functions
 - Deploy with `netlify deploy`
+
+## Deploy
+
+https://github.com/Gowjesh/Borewell-Project
