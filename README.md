@@ -85,7 +85,7 @@ All variables are in `.env`. The critical ones:
 - **Graceful shutdown** — SIGTERM/SIGINT handlers
 - **Hard boot failure** if env vars missing
 
-### Fixed Bugs ✅
+### Fixed Bugs 
 - `DELETE /admin/bookings/all` used `.neq('id', 0)` which fails for UUID ids — fixed to `.gte('id', 0)`
 - Admin bookings page was calling `/api/bookings?all=true` (unauthenticated param) — now uses `/api/admin/merchants` with auth
 - Booking similarity check was blocking legitimate bookings — removed
